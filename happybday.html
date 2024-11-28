@@ -97,8 +97,8 @@
             camera.position.z = 10;
             let last =0; 
             function animate(time) {
-                requestAnimationFrame(animate);//recursive
-
+                
+                if(time - last >33){
                 hearts.forEach((heart) => {
                     heart.rotation.x += 0.01;
                     heart.rotation.y += 0.01;
@@ -109,8 +109,11 @@
                 });
 
                 renderer.render(scene, camera);
+                last = time; 
+                }
+                requestAnimationFrame(animate);//recursive
             }
-            animate();
+            animate(0);
         </script>
     </body>
 </html>
