@@ -102,6 +102,7 @@
                     heart.rotation.x += 0.01;
                     heart.rotation.y += 0.01;
                     heart.position.y += Math.random() * 0.1 - 0.05;
+                    if (heart.position.y > 10) heart.position.y = -10;
 
         </script>
     </body>
