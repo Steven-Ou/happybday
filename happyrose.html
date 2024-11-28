@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Happy Birthday with Roses</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script>
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffc0cb, 1, 50);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    // Text Geometry
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+      // Happy Birthday Text
+      const textGeometry = new THREE.TextGeometry('Happy Birthday!', {
+        font: font,
+        size: 1,
+        height: 0.2,
+      });
+      const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff69b4 });
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+      textMesh.position.set(-5, 2, 0); // Adjust position
+      scene.add(textMesh);
+
+      // Name Text
+      const nameGeometry = new THREE.TextGeometry('Alice', {
+        font: font,
+        size: 0.8,
+        height: 0.2,
+      });
+      const nameMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 }); // Red color
+      const nameMesh = new THREE.Mesh(nameGeometry, nameMaterial);
+      nameMesh.position.set(-2.5, 0, 0); // Adjust position to align below "Happy Birthday!"
+      scene.add(nameMesh);
+    });
+
+    // Load Rose Texture
+    const textureLoader = new THREE.TextureLoader();
+    const roseTexture = textureLoader.load('https://cdn.pixabay.com/photo/2014/04/10/11/06/rose-320868_1280.png'); // Free rose image
+
+    // Roses
+    const roses = [];
+    const roseMaterial = new THREE.MeshBasicMaterial({
+      map: roseTexture,
+      transparent: true,
+    });
+
+    for (let i = 0; i < 30; i++) {
+      const roseGeometry = new THREE.PlaneGeometry(1.5, 1.5); // Flat plane for rose
+      const roseMesh = new THREE.Mesh(roseGeometry, roseMaterial);
+
+      // Random position and scale
+      roseMesh.position.set(
+        (Math.random() - 0.5) * 20,
+        (Math.random() - 0.5) * 20,
+        (Math.random() - 0.5) * 20
+      );
+      const randomScale = Math.random() * 0.8 + 0.5; // Random size between 0.5 and 1.3
+      roseMesh.scale.set(randomScale, randomScale, randomScale);
+      roseMesh.rotation.set(
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI
+      );
+
+      scene.add(roseMesh);
+      roses.push(roseMesh);
+    }
+
+    // Animation
+    camera.position.z = 10;
+    function animate() {
+      requestAnimationFrame(animate);
+
+      roses.forEach((rose) => {
+        rose.rotation.y += 0.01;
+        rose.rotation.x += 0.01;
+        rose.position.y -= 0.05; // Move downwards
+        if (rose.position.y < -10) rose.position.y = 10; // Reset to top
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
