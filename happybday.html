@@ -69,7 +69,8 @@
             const hearts = []; 
             const heartMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
             for (let i = 0; i < 50; i++) {
-                
+                const heartGeometry = new THREE.ExtrudeGeometry(createHeartShape(), {
+       
         </script>
     </body>
 </html>
