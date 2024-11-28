@@ -95,8 +95,8 @@
 
             //Animation
             camera.position.z = 10;
-            
-            function animate() {
+            let last =0; 
+            function animate(time) {
                 requestAnimationFrame(animate);//recursive
 
                 hearts.forEach((heart) => {
