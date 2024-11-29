@@ -105,7 +105,7 @@
                 hearts.forEach((heart) => {
                     heart.rotation.x += 0.01;//rotate the heart
                     heart.rotation.y += 0.01;
-                    heart.position.y -= 0.05;
+                    heart.position.y -= 0.05;//Moving the hearts downwards
                     if (heart.position.y < -10) heart.position.y = 10; // Reset to the top
                     else heart.visible = true;
                 });
