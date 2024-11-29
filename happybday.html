@@ -39,7 +39,7 @@
                 });
          
             const textMaterial = new THREE.MeshStandardMaterial({color:0xff69b4}); //Pink color
-            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);//Combining textGeo and textMaterial
             textMesh.position.set(-5, 2, 0); // Adjust position
             scene.add(textMesh);
 
