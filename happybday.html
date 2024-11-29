@@ -18,7 +18,7 @@
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); //The height and the width of the camera
             //75 is the field of view, the next one is the ratio of the window, 0.1 near clipping plane, 1000 far clipping plane
-            const renderer = new THREE.WebGLRenderer();//Creating a web Rendering
+            const renderer = new THREE.WebGLRenderer();//Creating a web Rendering to math the window dimension
             renderer.setSize(window.innerWidth, window.innerHeight); //Setting the size base off the the camera's initial size of height and width
             document.body.appendChild(renderer.domElement);
 
