@@ -30,7 +30,7 @@
             scene.add(pointLight);
 
             //Text Geometry
-            const fontLoader = new THREE.FontLoader();
+            const fontLoader = new THREE.FontLoader();///Load fonts for text geometry
             fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
                 const textGeometry = new THREE.TextGeometry('Happy Birthday!',{
                     font:font,
