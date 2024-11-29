@@ -73,7 +73,7 @@
             const heartMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });//Red hearts color
             for (let i = 0; i < 50; i++) {//Amount = 50
                 const heartGeometry = new THREE.ExtrudeGeometry(createHeartShape(), {
-                    depth: 0.2,
+                    depth: 0.2, //Thickness of heart
                     bevelEnabled: true,
                     bevelThickness: 0.02,
                     bevelSize: 0.05,
