@@ -47,7 +47,7 @@
             const nameGeometry = new THREE.TextGeometry('Name',{
                 font:font,
                 size:0.8, //Slightly smaller size than happy bday
-                height:0.2,
+                height:0.2,//the depth is also slightly smaller too
             });
             const nameMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 }); // Red color
             const nameMesh = new THREE.Mesh(nameGeometry, nameMaterial);
