@@ -41,14 +41,14 @@
             scene.add(textMesh);
 
             //Name Text
-            const nameGeometry = new THREE.TextGeometry('Name',{
+            const nameGeometry = new THREE.TextGeometry('Allen',{
                 font:font,
                 size:0.8,
                 height:0.2,
             });
             const nameMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 }); // Red color
             const nameMesh = new THREE.Mesh(nameGeometry, nameMaterial);
-            nameMesh.position.set(-2.5, 0, 0); // Adjust position to align below "Happy Birthday!"
+            nameMesh.position.set(-1.5, 0, 0); // Adjust position to align below "Happy Birthday!"
             scene.add(nameMesh);
         });
 
