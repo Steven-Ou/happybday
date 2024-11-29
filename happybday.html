@@ -41,7 +41,7 @@
             const textMaterial = new THREE.MeshStandardMaterial({color:0xff69b4}); //Pink color
             const textMesh = new THREE.Mesh(textGeometry, textMaterial);//Combining textGeo and textMaterial
             textMesh.position.set(-5, 2, 0); // Adjust position of the text
-            scene.add(textMesh);
+            scene.add(textMesh);//adding the text to the scene
 
             //Name Text
             const nameGeometry = new THREE.TextGeometry('Name',{
