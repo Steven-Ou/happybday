@@ -71,7 +71,7 @@
              // Creating multiple hearts to the scene
             const hearts = []; //An array to store the hearts
             const heartMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });//Red hearts color
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 50; i++) {//Amount = 50
                 const heartGeometry = new THREE.ExtrudeGeometry(createHeartShape(), {
                     depth: 0.2,
                     bevelEnabled: true,
