@@ -20,7 +20,7 @@
             //75 is the field of view, the next one is the ratio of the window, 0.1 near clipping plane, 1000 far clipping plane
             const renderer = new THREE.WebGLRenderer();//Creating a web Rendering to math the window dimension
             renderer.setSize(window.innerWidth, window.innerHeight); //Setting the size base off the the camera's initial size of height and width
-            document.body.appendChild(renderer.domElement);
+            document.body.appendChild(renderer.domElement);//Adding the render to the dorm
 
             // Lighting
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); //The lights color
