@@ -101,7 +101,7 @@
             let last =0; //Time tracking for animation frame control
             function animate(time) {
                 
-                if(time - last >33){
+                if(time - last >33){ //Limiting to 30 fps for performance
                 hearts.forEach((heart) => {
                     heart.rotation.x += 0.01;
                     heart.rotation.y += 0.01;
