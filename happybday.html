@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
        <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width,initial-scale=1.0">
+       <meta name="viewport" content="width=device-width,intial-scale=1.0">
        <title>3D Happy Birthday</title> 
        <style>
         body { margin: 0; overflow: hidden; }
@@ -14,7 +14,8 @@
         <script>
             // Scene setup
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); 
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
@@ -76,7 +77,7 @@
                     bevelSegments: 5,
                 });
                 const heartMesh = new THREE.Mesh(heartGeometry, heartMaterial);
-                heartMesh.position.set(
+                heartMesh.position.set(//This does not cause lagginess 
                     (Math.random() - 0.5) * 20,
                     (Math.random() - 0.5) * 20,
                     (Math.random() - 0.5) * 20
