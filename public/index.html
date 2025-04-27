@@ -109,22 +109,23 @@
                 raycaster.setFromCamera(mouse, camera);
                 const intersects = raycaster.intersectObjects(hearts);
                 if (intersects.length > 0) {
-                const clickedHeart = intersects[0].object;
+                    const clickedHeart = intersects[0].object;
         
-                // Make it change color randomly every time you click
-                clickedHeart.material.color.set(Math.random() * 0xffffff);
+                    // Randomly change color
+                    clickedHeart.material.color.set(Math.random() * 0xffffff);
 
-                // Make it "pop" a little
-                clickedHeart.scale.set(
-                    clickedHeart.scale.x * 1.2,
-                    clickedHeart.scale.y * 1.2,
-                    clickedHeart.scale.z * 1.2
-                );
+                    // Grow bigger
+                    clickedHeart.scale.set(
+                        clickedHeart.scale.x * 1.2,
+                        clickedHeart.scale.y * 1.2,
+                        clickedHeart.scale.z * 1.2
+                    );
 
-                // NO removing anymore! Heart stays! 🎈
-                // setTimeout(() => {
-                //     scene.remove(clickedHeart);
-                // }, 500);
+                    // 💥 Check if too big
+                    if (clickedHeart.scale.x > 3) {
+                        explode(clickedHeart.position); // trigger explosion
+                        scene.remove(clickedHeart);     // remove the big heart
+                    }
                 }
             }
 
